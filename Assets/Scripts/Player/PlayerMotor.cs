@@ -72,5 +72,6 @@ public class PlayerMotor : MonoBehaviour
         isSprinting = false;
         speed=walkingSpeed;
         
+        
     }
 }

@@ -6,12 +6,13 @@ public class EnemyAI : MonoBehaviour
 {
     public float stopDistance =2.5f;
     NavMeshAgent nvm;
+    private Animator animator;
     public Transform target; 
-    public PlayerHealth playerHP;
     // Start is called before the first frame update
     void Start()
     {
         nvm = GetComponent<NavMeshAgent>();
+        animator = GetComponentInChildren<Animator>();
     }
 
     // Update is called once per frame
@@ -29,11 +30,17 @@ public class EnemyAI : MonoBehaviour
         
     }
     void ZombieAttack(){
-        
-        playerHP.takeDmg(EnemyControler.dmg);
+        animator.ResetTrigger("inRange");
+        animator.SetTrigger("inRange");
+        while(animator.GetCurrentAnimatorStateInfo(0).IsName("Attack")){
+            nvm.enabled  = false;
+        }
+        nvm.enabled = true;
+        //activar collider de manos y si esos collider hacen daño esto, igual en otro script
+        //target.GetComponent<PlayerHealth>().takeDmg(EnemyControler.dmg);
     }
 
     void StopEnemy(){
-        nvm.isStopped = true;
+        nvm.enabled = false;
     }
 }
