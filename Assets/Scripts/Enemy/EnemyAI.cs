@@ -4,40 +4,49 @@ using UnityEngine;
 using UnityEngine.AI;
 public class EnemyAI : MonoBehaviour
 {
-    public float stopDistance =2.5f;
+    public float stopDistance =1f;
     NavMeshAgent nvm;
     private Animator animator;
+    public Collider handCollider;
     public Transform target; 
-    // Start is called before the first frame update
+    public Transform Pov;
     void Start()
     {
         nvm = GetComponent<NavMeshAgent>();
         animator = GetComponentInChildren<Animator>();
     }
 
-    // Update is called once per frame
     void Update()
     {
         float dist = Vector3.Distance(transform.position,target.transform.position);
-        if(dist<stopDistance){
-            StopEnemy();
-            ZombieAttack();
+        RaycastHit hit;
+         if( Physics.Raycast(Pov.position, Pov.forward, out hit, stopDistance)){               
+                if(hit.collider.tag == "Player"){
+                    StopEnemy();
+                    ZombieAttack();
+                }else{
+                    if(!animator.GetCurrentAnimatorStateInfo(0).IsName("Attack")){
+                        //handCollider.enabled = false;
+                        nvm.enabled = true;
+                        nvm.SetDestination(target.position);
+                    }
+                }
+
+        }else{
+            if(!animator.GetCurrentAnimatorStateInfo(0).IsName("Attack")){
+                //handCollider.enabled = false;
+                nvm.enabled = true;
+                nvm.SetDestination(target.position);
+            }
         }
-        else{
-            nvm.isStopped = false;
-            nvm.SetDestination(target.position);
-        }
-        
     }
+
     void ZombieAttack(){
-        animator.ResetTrigger("inRange");
-        animator.SetTrigger("inRange");
-        while(animator.GetCurrentAnimatorStateInfo(0).IsName("Attack")){
-            nvm.enabled  = false;
+        if(!animator.GetCurrentAnimatorStateInfo(0).IsName("Attack")){
+            animator.ResetTrigger("inRange");
+            animator.SetTrigger("inRange");
+            handCollider.enabled = true;
         }
-        nvm.enabled = true;
-        //activar collider de manos y si esos collider hacen daño esto, igual en otro script
-        //target.GetComponent<PlayerHealth>().takeDmg(EnemyControler.dmg);
     }
 
     void StopEnemy(){

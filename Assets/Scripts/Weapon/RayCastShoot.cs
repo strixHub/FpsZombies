@@ -13,15 +13,12 @@ public class RayCastShoot : MonoBehaviour
     public Camera fpsCam;
     private WaitForSeconds shotDurations = new WaitForSeconds(0.07f);
     private AudioSource gunAudio;
-    //private LineRenderer shotLine;
     public ParticleSystem muzzleFlash;
     private float nextFire; 
     void Start()
     {
-        //shotLine = GetComponent<LineRenderer>();
         animator = GetComponentInChildren<Animator>();
         gunAudio = GetComponentInChildren<AudioSource>();
-        //fpsCam = GetComponentInParent<Camera>();
     }
 
     void Update()
@@ -33,11 +30,9 @@ public class RayCastShoot : MonoBehaviour
             Vector3 shotOrigen = fpsCam.ViewportToWorldPoint(new Vector3(0.5f,0.5f,0));
             RaycastHit hit;
 
-            //shotLine.SetPosition(0, gunEnd.position);
 
             if(Physics.Raycast(shotOrigen, fpsCam.transform.forward, out hit, weaponRange)){
-                //Debug.Log("Hit");
-                //shotLine.SetPosition(1, hit.point);
+                
                 EnemyControler health = hit.collider.GetComponent<EnemyControler>();
                 if(health!= null){
                     health.getDmg(gunDmg);
@@ -55,8 +50,6 @@ public class RayCastShoot : MonoBehaviour
         animator.ResetTrigger("Shooting");
         animator.SetTrigger("Shooting");
         muzzleFlash.Play();
-        //shotLine.enabled = true;
         yield return shotDurations;
-        //shotLine.enabled = false;
     }
 }

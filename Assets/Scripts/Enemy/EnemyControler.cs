@@ -22,11 +22,13 @@ public class EnemyControler : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        updateZombiUI();
     }
 
     public void getDmg(int dmg){
         
         currentHealth -= dmg;
+        Debug.Log(currentHealth);
         updateZombiUI();
         if(currentHealth<=0){
             //die animation and despawn
@@ -36,14 +38,14 @@ public class EnemyControler : MonoBehaviour
 
     void updateZombiUI()
     {
-        float timer = 0f;
-        float cheapSpeed = 0.01f;
+        float timer = 1f;
+        float cheapSpeed = .2f;
         float fillF = frontSTB.fillAmount;
         float fillB = backSTB.fillAmount;
         float healthFraction = currentHealth/maxHealth;
 
         frontSTB.fillAmount = healthFraction;
-        backSTB.color = Color.red;
+        backSTB.color = Color.black;
         timer += Time.deltaTime;
         float percent = timer/cheapSpeed;
 

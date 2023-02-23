@@ -10,6 +10,7 @@ public class PlayerHealth : MonoBehaviour
     public float cheapSpeed = 2f;
     public Image frontHB;
     public Image backHB;
+    
     private float timer;
     // Start is called before the first frame update
     void Start()
@@ -53,9 +54,17 @@ public class PlayerHealth : MonoBehaviour
         timer = 0f;
     }
 
+    private void OnTriggerEnter(Collider other) {
+        Debug.Log("trigger");
+        if (other.tag == "EnemyHitArm") {
+            takeDmg(EnemyControler.dmg);
+            other.enabled = false;
+        }
+    }
+
     public void restoreHealth(float heal){
-        
         health+=heal;
         timer = 0f;
+       
     }
 }
