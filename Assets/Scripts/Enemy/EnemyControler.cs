@@ -8,7 +8,8 @@ public class EnemyControler : MonoBehaviour
 {
     public float maxHealth = 3f;
     private float currentHealth;
-    public int dmg = 30;
+
+    public static int dmg = 30;
     //falta el caracter a aprender
     public Image frontSTB;
     public Image backSTB;
@@ -21,7 +22,6 @@ public class EnemyControler : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
     }
 
     public void getDmg(int dmg){
@@ -47,8 +47,6 @@ public class EnemyControler : MonoBehaviour
         timer += Time.deltaTime;
         float percent = timer/cheapSpeed;
 
-        //0,0114934
         backSTB.fillAmount = Mathf.Lerp(fillB, healthFraction, percent);
-        
     }
 }
