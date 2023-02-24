@@ -7,7 +7,7 @@ public class InputManager : MonoBehaviour
 {
     private PlayerInput playerInput;
     private PlayerLook look;
-    private PlayerInput.OnFootActions onFoot;
+    public PlayerInput.OnFootActions onFoot;
     private PlayerMotor motor;
 
     // Start is called before the first frame update
@@ -22,7 +22,7 @@ public class InputManager : MonoBehaviour
         onFoot.StopSprint.performed += ctx => motor.StopSprint();
     }
 
-    // Update is called once per frame
+    
     void FixedUpdate()
     {
         motor.ProcessMove(onFoot.Movement.ReadValue<Vector2>());

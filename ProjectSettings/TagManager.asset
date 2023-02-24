@@ -5,6 +5,10 @@ TagManager:
   serializedVersion: 2
   tags:
   - EnemyHitArm
+  - Japanese
+  - Chinese
+  - Korean
+  - Russian
   layers:
   - Default
   - TransparentFX

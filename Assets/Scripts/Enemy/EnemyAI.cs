@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.AI;
 public class EnemyAI : MonoBehaviour
 {
-    public float stopDistance =1f;
+    public float stopDistance =0.8f;
     NavMeshAgent nvm;
     private Animator animator;
     public Collider handCollider;

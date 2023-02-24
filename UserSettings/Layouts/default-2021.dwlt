@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 1536
     height: 780.8
   m_ShowMode: 4
-  m_Title: Console
+  m_Title: Project
   m_RootView: {fileID: 2}
   m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
@@ -119,7 +119,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 200}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 24
+  controlID: 92
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -144,7 +144,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 200}
   m_MaxSize: {x: 16192, y: 16192}
   vertical: 1
-  controlID: 25
+  controlID: 93
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -169,7 +169,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 100}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
-  controlID: 26
+  controlID: 94
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -234,7 +234,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 1
   m_Script: {fileID: 12006, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: ConsoleWindow
+  m_Name: ProjectBrowser
   m_EditorClassIdentifier: 
   m_Children: []
   m_Position:
@@ -243,15 +243,15 @@ MonoBehaviour:
     y: 514.4
     width: 1128
     height: 216.39996
-  m_MinSize: {x: 101, y: 121}
-  m_MaxSize: {x: 4001, y: 4021}
-  m_ActualView: {fileID: 22}
+  m_MinSize: {x: 231, y: 271}
+  m_MaxSize: {x: 10001, y: 10021}
+  m_ActualView: {fileID: 21}
   m_Panes:
   - {fileID: 21}
   - {fileID: 22}
   - {fileID: 18}
   - {fileID: 15}
-  m_Selected: 1
+  m_Selected: 0
   m_LastSelected: 2
 --- !u!114 &11
 MonoBehaviour:
@@ -272,8 +272,8 @@ MonoBehaviour:
     y: 0
     width: 408
     height: 730.8
-  m_MinSize: {x: 276, y: 71}
-  m_MaxSize: {x: 4001, y: 4021}
+  m_MinSize: {x: 275, y: 50}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 23}
   m_Panes:
   - {fileID: 23}
@@ -15305,7 +15305,7 @@ MonoBehaviour:
       changingManually: 0
     hasRemote: 1
     lastCurrentRemoteChangedEvent:
-      updatedTimeString: 2023-02-23T17:25:07.608+09:00
+      updatedTimeString: 2023-02-23T19:43:06.085+09:00
       cacheType: 1
     metricsEnabled: 1
     newRepositoryRemoteUrl: https://github.com/MarcFernandezParra/FpsZombies.git
@@ -15319,7 +15319,7 @@ MonoBehaviour:
       newGitEmail: markusmou51@gmail.com
       needsSaving: 0
       lastCheckUserChangedEvent:
-        updatedTimeString: 2023-02-23T17:34:43.595+09:00
+        updatedTimeString: 2023-02-23T19:31:42.880+09:00
         cacheType: 8
     webTimeout: 3000
     gitTimeout: 5000
@@ -15463,9 +15463,9 @@ MonoBehaviour:
   m_Pos:
     serializedVersion: 2
     x: 0
-    y: 437.6
-    width: 1048.6
-    height: 345.8
+    y: 588
+    width: 1127
+    height: 195.39996
   m_ViewDataDictionary: {fileID: 0}
   m_OverlayCanvas:
     m_LastAppliedPresetName: Default
@@ -15589,12 +15589,12 @@ MonoBehaviour:
       oldMaxSizes: 
       oldSplitSize: 0
     m_HorizontalSplitter:
-      ID: 171
+      ID: 62
       splitterInitialOffset: 0
       currentActiveSplitter: -1
       realSizes:
-      - 314.4
-      - 734.4
+      - 338.39993
+      - 788.8
       relativeSizes:
       - 0.3
       - 0.7
@@ -15604,7 +15604,7 @@ MonoBehaviour:
       maxSizes:
       - 0
       - 0
-      lastTotalSize: 1048.8
+      lastTotalSize: 1127.2
       splitSize: 6
       xOffset: 0
       m_Version: 1
@@ -16077,9 +16077,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 11.716353, y: 0.50728154, z: -5.708276}
+    m_Target: {x: 13.302627, y: 0.1399819, z: -9.917083}
     speed: 2
-    m_Value: {x: 11.716353, y: 0.50728154, z: -5.708276}
+    m_Value: {x: 13.302627, y: 0.1399819, z: -9.917083}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -16126,13 +16126,13 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: 0.04036773, y: -0.9573684, z: 0.16592161, w: 0.23306173}
+    m_Target: {x: 0.0055268863, y: 0.99247235, z: -0.112426914, w: 0.04858473}
     speed: 2
-    m_Value: {x: 0.040367093, y: -0.9573533, z: 0.165919, w: 0.23305807}
+    m_Value: {x: 0.0055267974, y: 0.9924564, z: -0.112425104, w: 0.048583947}
   m_Size:
-    m_Target: 1.7147331
+    m_Target: 3.882222
     speed: 2
-    m_Value: 1.7147331
+    m_Value: 3.882222
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -16188,23 +16188,23 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: e4f7ffff
+      m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: 88f8ffff8cf8ffff90f8fffffcf8ffff00f9ffff04f9ffff08f9ffff0cf9ffff10f9ffff24f9ffff38f9ffff3cf9ffff5af9ffff66f9ffff32fbffff22640000
+      m_ExpandedIDs: 88f8ffff8cf8ffff90f8ffff08f9ffff0cf9ffff10f9ffff3cf9ffff1efbffff32fbffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
-        m_Name: FuzZombie
-        m_OriginalName: FuzZombie
+        m_Name: 
+        m_OriginalName: 
         m_EditFieldRect:
           serializedVersion: 2
           x: 0
           y: 0
           width: 0
           height: 0
-        m_UserData: -1714
+        m_UserData: 0
         m_IsWaitingForDelay: 0
         m_IsRenaming: 0
-        m_OriginalEventType: 0
+        m_OriginalEventType: 11
         m_IsRenamingFilename: 0
         m_ClientGUIView: {fileID: 9}
       m_SearchString: 
@@ -16255,22 +16255,22 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets
+    - Assets/Scenes/Prefabs
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets
+  - Assets/Scenes/Prefabs
   m_LastFoldersGridSize: -1
   m_LastProjectPath: C:\Users\Mou\Desktop\TFG\Zombies\ZombiesGame
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 946a0000
-    m_LastClickedID: 27284
-    m_ExpandedIDs: 0000000036690000386900003a6900003c690000aa6a000000ca9a3b
+    scrollPos: {x: 0, y: 212.60004}
+    m_SelectedIDs: 426f0000
+    m_LastClickedID: 28482
+    m_ExpandedIDs: 000000003a6900003c6900003e6900004069000042690000106f000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -16298,7 +16298,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 0000000036690000386900003a6900003c690000
+    m_ExpandedIDs: 000000003a6900003c6900003e6900004069000042690000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -16323,9 +16323,9 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: 84f8ffff
-    m_LastClickedInstanceID: -1916
-    m_HadKeyboardFocusLastEvent: 0
+    m_SelectedInstanceIDs: 
+    m_LastClickedInstanceID: 0
+    m_HadKeyboardFocusLastEvent: 1
     m_ExpandedInstanceIDs: c623000084690000f86200003060000054600000d25e0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -16342,7 +16342,7 @@ MonoBehaviour:
       m_IsRenaming: 0
       m_OriginalEventType: 11
       m_IsRenamingFilename: 1
-      m_ClientGUIView: {fileID: 10}
+      m_ClientGUIView: {fileID: 9}
     m_CreateAssetUtility:
       m_EndAction: {fileID: 0}
       m_InstanceID: 0

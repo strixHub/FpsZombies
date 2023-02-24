@@ -14,10 +14,12 @@ public class PlayerMotor : MonoBehaviour
     public static float sprintingSpeed = 8f;
     public float gravity = -9.8f;
 
+    private InputManager inputManager;
     public float jumpHeight = 3f;
     // Start is called before the first frame update
     void Start()
     {
+        inputManager = GetComponent<InputManager>();
         controller = GetComponent<CharacterController>();
     }
 
@@ -25,6 +27,11 @@ public class PlayerMotor : MonoBehaviour
     void Update()
     {
         isGrounded = controller.isGrounded;
+        if(isSprinting){
+            PlayerStamina.loseStamina(0.3f);
+        }else{
+            PlayerStamina.healStamina(.4f);
+        }
     }
 
     public void ProcessMove(Vector2 input){
@@ -63,15 +70,13 @@ public class PlayerMotor : MonoBehaviour
 
     public void Sprint(){
         if(!isTired){
-                isSprinting=true;
-                speed=sprintingSpeed;
+            isSprinting=true;
+            speed=sprintingSpeed;
         }
     }
     
     public void StopSprint(){
         isSprinting = false;
         speed=walkingSpeed;
-        
-        
     }
 }

@@ -165,6 +165,43 @@ MonoBehaviour:
   cheapSpeed: 2
   frontHB: {fileID: 168491137}
   backHB: {fileID: 635776552}
+--- !u!1 &519193889 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 578105194391453879, guid: 382415592957cab4cbec8e0a7e59f983, type: 3}
+  m_PrefabInstance: {fileID: 578105195882414102}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &519193893
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519193889}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ce99c156697bc0e40ab9ae0f709ee098, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &519193894
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519193889}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 94ab5eecb49bbd741a53eb0b103fe2d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &635776552 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2537862962192506850, guid: 1a6068aeeb4f3ee48b6c219fa860a722, type: 3}
@@ -273,6 +310,10 @@ PrefabInstance:
     - target: {fileID: 578105195559738968, guid: 382415592957cab4cbec8e0a7e59f983, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 578105195600932446, guid: 382415592957cab4cbec8e0a7e59f983, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.6
       objectReference: {fileID: 0}
     - target: {fileID: 578105195966633784, guid: 382415592957cab4cbec8e0a7e59f983, type: 3}
       propertyPath: m_Enabled
@@ -621,9 +662,33 @@ PrefabInstance:
       propertyPath: m_Name
       value: Zombie
       objectReference: {fileID: 0}
+    - target: {fileID: 8440112792364233256, guid: 892347659646b054887de811ec4e53f2, type: 3}
+      propertyPath: m_Height
+      value: 2.2000003
+      objectReference: {fileID: 0}
+    - target: {fileID: 8440112792364233256, guid: 892347659646b054887de811ec4e53f2, type: 3}
+      propertyPath: m_Radius
+      value: 0.30780643
+      objectReference: {fileID: 0}
+    - target: {fileID: 8440112792364233256, guid: 892347659646b054887de811ec4e53f2, type: 3}
+      propertyPath: m_Center.x
+      value: -0.0015937685
+      objectReference: {fileID: 0}
+    - target: {fileID: 8440112792364233256, guid: 892347659646b054887de811ec4e53f2, type: 3}
+      propertyPath: m_Center.z
+      value: 3.5494004e-13
+      objectReference: {fileID: 0}
     - target: {fileID: 8440112792364233258, guid: 892347659646b054887de811ec4e53f2, type: 3}
       propertyPath: target
       value: 
       objectReference: {fileID: 323247694}
+    - target: {fileID: 8440112792364233258, guid: 892347659646b054887de811ec4e53f2, type: 3}
+      propertyPath: stopDistance
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8440112792380215243, guid: 892347659646b054887de811ec4e53f2, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 892347659646b054887de811ec4e53f2, type: 3}
