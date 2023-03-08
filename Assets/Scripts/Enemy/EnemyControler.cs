@@ -33,6 +33,9 @@ public class EnemyControler : MonoBehaviour
         if(currentHealth<=0){
             //die animation and despawn
             gameObject.SetActive(false);
+            //death anim for 5 seconds, then destroy
+            //Destroy(gameObject);
+            Spawner.nOfZombies --;
         }
     }
 
