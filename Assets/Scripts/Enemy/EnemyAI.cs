@@ -8,12 +8,13 @@ public class EnemyAI : MonoBehaviour
     NavMeshAgent nvm;
     private Animator animator;
     public Collider handCollider;
-    public Transform target; 
+    private Transform target; 
     public Transform Pov;
     void Start()
     {
         nvm = GetComponent<NavMeshAgent>();
         animator = GetComponentInChildren<Animator>();
+        target = GameObject.FindWithTag("Player").transform;
     }
 
     void Update()

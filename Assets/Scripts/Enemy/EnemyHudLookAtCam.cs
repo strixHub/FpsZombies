@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class EnemyHudLookAtCam : MonoBehaviour
 {
-    public Camera lookAtCamera;
+    private Camera lookAtCamera;
     void Start()
     {
         
+        lookAtCamera = GameObject.FindWithTag("Player").GetComponentInChildren<Camera>();
     }
 
     // Update is called once per frame

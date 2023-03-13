@@ -36,6 +36,7 @@ public class EnemyControler : MonoBehaviour
             //death anim for 5 seconds, then destroy
             //Destroy(gameObject);
             Spawner.nOfZombies --;
+            Debug.Log(Spawner.nOfZombies);
         }
     }
 
