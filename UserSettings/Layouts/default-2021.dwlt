@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 1536
     height: 780.8
   m_ShowMode: 4
-  m_Title: Hierarchy
+  m_Title: Game
   m_RootView: {fileID: 4}
   m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
@@ -74,7 +74,7 @@ MonoBehaviour:
   m_MinSize: {x: 100, y: 200}
   m_MaxSize: {x: 8096, y: 16192}
   vertical: 1
-  controlID: 105
+  controlID: 142
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -170,7 +170,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 200}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 104
+  controlID: 141
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -195,7 +195,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 200}
   m_MaxSize: {x: 16192, y: 16192}
   vertical: 1
-  controlID: 21
+  controlID: 60
 --- !u!114 &9
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -220,7 +220,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 100}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
-  controlID: 22
+  controlID: 61
 --- !u!114 &10
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -240,8 +240,8 @@ MonoBehaviour:
     y: 0
     width: 800
     height: 349.6
-  m_MinSize: {x: 200, y: 200}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 201, y: 221}
+  m_MaxSize: {x: 4001, y: 4021}
   m_ActualView: {fileID: 22}
   m_Panes:
   - {fileID: 22}
@@ -268,8 +268,8 @@ MonoBehaviour:
     y: 0
     width: 298.40002
     height: 349.6
-  m_MinSize: {x: 200, y: 200}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 202, y: 221}
+  m_MaxSize: {x: 4002, y: 4021}
   m_ActualView: {fileID: 23}
   m_Panes:
   - {fileID: 23}
@@ -15387,7 +15387,7 @@ MonoBehaviour:
       changingManually: 0
     hasRemote: 1
     lastCurrentRemoteChangedEvent:
-      updatedTimeString: 2023-03-17T17:46:32.711+09:00
+      updatedTimeString: 2023-03-23T03:06:06.035+09:00
       cacheType: 1
     metricsEnabled: 1
     newRepositoryRemoteUrl: https://github.com/MarcFernandezParra/FpsZombies.git
@@ -15401,7 +15401,7 @@ MonoBehaviour:
       newGitEmail: markusmou51@gmail.com
       needsSaving: 0
       lastCheckUserChangedEvent:
-        updatedTimeString: 2023-03-17T17:55:47.650+09:00
+        updatedTimeString: 2023-03-23T03:51:47.701+09:00
         cacheType: 8
     webTimeout: 3000
     gitTimeout: 5000
@@ -16176,9 +16176,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 477.5304, y: 175.27312, z: -0.37317276}
+    m_Target: {x: 568.76044, y: 160.03546, z: -0.91267014}
     speed: 2
-    m_Value: {x: 477.5304, y: 175.27312, z: -0.37317276}
+    m_Value: {x: 568.76044, y: 160.03546, z: -0.91267014}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -16229,9 +16229,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 129.37347
+    m_Target: 129.8011
     speed: 2
-    m_Value: 129.37347
+    m_Value: 129.8011
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -16286,10 +16286,10 @@ MonoBehaviour:
     m_SaveData: []
   m_SceneHierarchy:
     m_TreeViewState:
-      scrollPos: {x: 0, y: 140.4}
-      m_SelectedIDs: da8d0000
-      m_LastClickedID: 36314
-      m_ExpandedIDs: 5c5cffff625cffff8ca9ffff98a9ffffbaa9ffffcaa9ffffd6a9ffff10b7ffff5cc2ffff32e0ffff40e0ffff4ce0ffff32fbffff8a6400006e650000bc650000f86500000a66000040660000d08d0000da8d0000e48d0000fc8d0000388e0000e08e00002e8f00007c8f0000b28f0000
+      scrollPos: {x: 0, y: 0}
+      m_SelectedIDs: b6690000
+      m_LastClickedID: 0
+      m_ExpandedIDs: 38dbffff70ddffff6af9ffff32fbffff5a660000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -16354,22 +16354,22 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Scenes
+    - Assets/Scenes/SampleScene
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Scenes
+  - Assets/Scenes/SampleScene
   m_LastFoldersGridSize: -1
   m_LastProjectPath: C:\Users\Mou\Desktop\TFG\Zombies\ZombiesGame
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 79.80002}
-    m_SelectedIDs: 1e690000
-    m_LastClickedID: 26910
-    m_ExpandedIDs: 000000001c6900001e6900002069000022690000246900002669000000ca9a3b
+    m_SelectedIDs: 48690000
+    m_LastClickedID: 26952
+    m_ExpandedIDs: 000000002469000026690000286900002a6900002c6900002e69000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -16397,7 +16397,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 000000001c6900001e69000020690000226900002469000026690000
+    m_ExpandedIDs: 000000002469000026690000286900002a6900002c6900002e690000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
