@@ -11,6 +11,8 @@ public class SaveManager : MonoBehaviour
     private static string LVL = "Level";
     private static string SOLUTION = "Solution";
     private static string SOLUTIONS = "Solutions";
+    public GameObject cnt;
+    public static GameObject content;
     
     /*
         Save files will work as the following example, in plain text, so the users can share their learning decks easily.
@@ -24,18 +26,20 @@ public class SaveManager : MonoBehaviour
             }    
         }
     */
-    public GameObject content;
-    void SaveData()
+    private void Start() {
+        content = cnt;
+    }
+
+    public static void SaveData()
     {
 
         string path = Application.persistentDataPath+"/saves/SaveData.save";
 
-        FileStream file;
+        FileStream file = null;
         if(!Directory.Exists(Application.persistentDataPath+"/saves")){
             Directory.CreateDirectory(Application.persistentDataPath+"/saves");
             file = File.Create(path);
-        }else{
-            file = File.Open(path,FileMode.Open);
+            file.Close();
         }
         
         
@@ -53,14 +57,16 @@ public class SaveManager : MonoBehaviour
         
         JObject jobj = new JObject();
 
-        foreach (Transform g in content.GetComponentsInChildren<Transform>())
-        {
-            if(g.gameObject.activeSelf){
+        //"ListUnitBase"
 
-                GameObject toLearn = g.Find("ToLearn").gameObject;
-                GameObject solution = g.Find("Solution").gameObject;
-                string txtToLearn = toLearn.GetComponent<TextMeshPro>().text;
-                string txtSolution = solution.GetComponent<TextMeshPro>().text;
+        foreach (Transform tr in content.GetComponentsInChildren<Transform>(false))
+        {
+            if(tr.name.Equals("Content") || tr.Find("ToLearn") == null) continue;
+            GameObject g = tr.gameObject;
+            if(g.activeSelf){
+                string txtToLearn = tr.Find("ToLearn").gameObject.GetComponentInChildren<TMP_Text>().text;
+                Debug.Log(txtToLearn);
+                string txtSolution =  tr.Find("Solution").gameObject.GetComponentInChildren<TMP_Text>().text;
                 if(txtToLearn.Equals("")|| txtSolution.Equals("")){
                     continue;
                 }
@@ -89,8 +95,10 @@ public class SaveManager : MonoBehaviour
                 JObject obj = new JObject();
                 JArray solArray = new JArray();
                 JObject solObject = new JObject();
+                bool exists = false;
                 if(jobj.TryGetValue(txtToLearn, out token)){
                     //already existing, get the array of solutions
+                    exists = true;
                     JToken solutions = token.ToObject<JObject>().GetValue(SOLUTIONS);
                     solArray = solutions.ToObject<JArray>();
                 }
@@ -98,12 +106,28 @@ public class SaveManager : MonoBehaviour
                 solObject.Add(SOLUTION, txtSolution);
                 solObject.Add(LVL, lvl);
                 solArray.Add(solObject);
+                string [] info = new string[]{txtSolution, lvl}; 
+
+                if(GameMng.data.ContainsKey(txtToLearn)){
+                        GameMng.data[txtToLearn].Add(info);
+                    }else{
+                        List<string[]> strList = new List<string[]>();
+                        strList.Add(info);
+                        GameMng.data.Add(txtToLearn,strList);
+                    }
+
                 obj.Add(SOLUTIONS,solArray);
+                if(exists){
+                    jobj.Remove(txtToLearn);
+                }
                 jobj.Add(txtToLearn,obj);//
+                
             }
         }
+
+        jsonSave = jobj.ToString();
         
-        StreamReader sr = new StreamReader(file);
+        file = File.OpenWrite(path);
         using (StreamWriter sw = new StreamWriter(file))
         {
             // discard the contents of the file by setting the length to 0
@@ -114,8 +138,50 @@ public class SaveManager : MonoBehaviour
         }
     }
 
-    private JObject manageGameObject(Transform g){
-        return null;
-    }
 
+    public static void LoadData(GameObject cloneObj){
+        string path = Application.persistentDataPath+"/saves/SaveData.save";
+        
+        FileStream file;
+        if(Directory.Exists(Application.persistentDataPath+"/saves")){
+           
+            string jsonAux = File.ReadAllText(path);
+            Debug.Log(jsonAux);
+            JObject json = null;
+            try
+            {
+                json = JObject.Parse(jsonAux);
+            }
+            catch (System.Exception e)
+            {
+                //corrupted data
+                return;
+            }
+            foreach (JProperty property in json.Properties())
+            {
+                JObject thisObj = property.Value.ToObject<JObject>();
+                JArray solutionsArray = thisObj.GetValue(SOLUTIONS).ToObject<JArray>();
+                foreach(JToken jt in solutionsArray.Children()){
+                    JObject sol = jt.ToObject<JObject>();
+                    string solStr = sol.GetValue(SOLUTION).ToString();
+                    string lvlStr = sol.GetValue(LVL).ToString();
+                    string [] info = new string[]{solStr, lvlStr}; 
+                    if(GameMng.data.ContainsKey(property.Name)){
+                        GameMng.data[property.Name].Add(info);
+                    }else{
+                        List<string[]> strList = new List<string[]>();
+                        strList.Add(info);
+                        GameMng.data.Add(property.Name,strList);
+                    }
+
+                    GameObject newObj = Instantiate(cloneObj);
+
+                    GameObject learn = newObj.transform.GetChild(0).gameObject;
+                    learn.GetComponentInChildren<TMP_Text>().SetText(property.Name);
+                    GameObject solution = newObj.transform.GetChild(1).gameObject;
+                    solution.GetComponentInChildren<TMP_Text>().SetText(solStr);
+                }
+            }
+        }
+    }
 }
