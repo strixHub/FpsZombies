@@ -11,6 +11,10 @@ public class LearningList : MonoBehaviour
     public void AddRow(){
         GameObject clone = Instantiate(elementRow, list.transform, true);
         clone.SetActive(true);
+        if(SaveManager.clonedObj == null){
+            SaveManager.clonedObj = new List<GameObject>();
+        }
+        SaveManager.clonedObj.Add(clone);
     }
 
     public void DeleteThisRow(){

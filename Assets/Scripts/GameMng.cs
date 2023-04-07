@@ -6,12 +6,17 @@ public class GameMng : MonoBehaviour
 {
     // Start is called before the first frame update
     public static Dictionary <string, List<string[]>> data;
-    public GameObject cloneObj;    
+    public GameObject cloneObj;
+    public GameObject content;    
     
     void Start()
     {
         data = new Dictionary<string, List<string[]>>();
-        SaveManager.LoadData(cloneObj);
+        
+    }
+
+    public void StartData(){
+        SaveManager.LoadData(cloneObj, content);
     }
 
 }

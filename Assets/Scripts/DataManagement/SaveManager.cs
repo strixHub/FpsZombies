@@ -11,8 +11,8 @@ public class SaveManager : MonoBehaviour
     private static string LVL = "Level";
     private static string SOLUTION = "Solution";
     private static string SOLUTIONS = "Solutions";
-    public GameObject cnt;
     public static GameObject content;
+    public static List<GameObject> clonedObj;
     
     /*
         Save files will work as the following example, in plain text, so the users can share their learning decks easily.
@@ -27,7 +27,7 @@ public class SaveManager : MonoBehaviour
         }
     */
     private void Start() {
-        content = cnt;
+        clonedObj = new List<GameObject>();
     }
 
     public static void SaveData()
@@ -41,7 +41,7 @@ public class SaveManager : MonoBehaviour
             file = File.Create(path);
             file.Close();
         }
-        
+        Debug.Log(path);
         
         string jsonSave = "{}";
         string jsonAux = File.ReadAllText(path);
@@ -64,10 +64,21 @@ public class SaveManager : MonoBehaviour
             if(tr.name.Equals("Content") || tr.Find("ToLearn") == null) continue;
             GameObject g = tr.gameObject;
             if(g.activeSelf){
-                string txtToLearn = tr.Find("ToLearn").gameObject.GetComponentInChildren<TMP_Text>().text;
-                Debug.Log(txtToLearn);
-                string txtSolution =  tr.Find("Solution").gameObject.GetComponentInChildren<TMP_Text>().text;
-                if(txtToLearn.Equals("")|| txtSolution.Equals("")){
+                string txtToLearn = tr.Find("ToLearn").gameObject.GetComponentInChildren<TMP_InputField>().text;
+                string txtSolution =  tr.Find("Solution").gameObject.GetComponentInChildren<TMP_InputField>().text;
+
+                if(string.IsNullOrWhiteSpace(txtToLearn.Trim()) && 
+                    !string.IsNullOrWhiteSpace(tr.Find("ToLearn").GetChild(0).GetChild(2).GetComponent<TMP_Text>().text.Trim()) &&
+                    !tr.Find("ToLearn").GetChild(0).GetChild(2).GetComponent<TMP_Text>().text.Equals("Enter text...")){
+                    txtToLearn = tr.Find("ToLearn").GetChild(0).GetChild(2).GetComponent<TMP_Text>().text;
+                }
+                if(string.IsNullOrWhiteSpace(txtSolution.Trim()) &&
+                    !string.IsNullOrWhiteSpace(tr.Find("Solution").GetChild(0).GetChild(2).GetComponent<TMP_Text>().text.Trim()) &&
+                    !tr.Find("Solution").GetChild(0).GetChild(2).GetComponent<TMP_Text>().text.Equals("Enter text...")){
+                    txtSolution = tr.Find("Solution").GetChild(0).GetChild(2).GetComponent<TMP_Text>().text;
+                }
+                if(txtToLearn.Equals("") || txtSolution.Equals("")){
+                    Debug.Log("Continue");
                     continue;
                 }
                 string lvl = "0";
@@ -139,25 +150,38 @@ public class SaveManager : MonoBehaviour
     }
 
 
-    public static void LoadData(GameObject cloneObj){
+    public static void LoadData(GameObject cloneObj, GameObject cnt){
+
+        if(clonedObj != null) {
+            int i = clonedObj.Count;
+            int j = 0;
+            while (j<i){
+                
+                Destroy(clonedObj[j]);
+                j++;
+            }
+        }
+        clonedObj = new List<GameObject>();
+
+        content = cnt;
         string path = Application.persistentDataPath+"/saves/SaveData.save";
         
-        FileStream file;
+        FileStream file = null;
         if(Directory.Exists(Application.persistentDataPath+"/saves")){
            
             string jsonAux = File.ReadAllText(path);
-            Debug.Log(jsonAux);
             JObject json = null;
             try
             {
-                json = JObject.Parse(jsonAux);
+                json = JObject.FromObject(JsonConvert.DeserializeObject(jsonAux));
             }
             catch (System.Exception e)
             {
-                //corrupted data
+                Debug.Log(e.Message);
                 return;
             }
-            foreach (JProperty property in json.Properties())
+
+            foreach (JProperty property in json.Children())
             {
                 JObject thisObj = property.Value.ToObject<JObject>();
                 JArray solutionsArray = thisObj.GetValue(SOLUTIONS).ToObject<JArray>();
@@ -174,12 +198,12 @@ public class SaveManager : MonoBehaviour
                         GameMng.data.Add(property.Name,strList);
                     }
 
-                    GameObject newObj = Instantiate(cloneObj);
-
-                    GameObject learn = newObj.transform.GetChild(0).gameObject;
-                    learn.GetComponentInChildren<TMP_Text>().SetText(property.Name);
-                    GameObject solution = newObj.transform.GetChild(1).gameObject;
-                    solution.GetComponentInChildren<TMP_Text>().SetText(solStr);
+                    GameObject newObj = Instantiate(cloneObj, content.transform, true);    
+                    newObj.transform.Find("ToLearn").GetChild(0).GetChild(1).GetComponent<TMP_Text>().SetText(property.Name);
+                    
+                    newObj.transform.Find("Solution").GetChild(0).GetChild(1).GetComponent<TMP_Text>().SetText(solStr);                    
+                    newObj.SetActive(true);
+                    clonedObj.Add(newObj);
                 }
             }
         }
