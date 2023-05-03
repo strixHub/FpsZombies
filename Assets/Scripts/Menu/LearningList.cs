@@ -21,4 +21,9 @@ public class LearningList : MonoBehaviour
         GameObject button = UnityEngine.EventSystems.EventSystem.current.currentSelectedGameObject;
         Destroy(button.transform.parent.gameObject);
     }
+
+
+    public void Save(){
+        SaveManager.SaveData();
+    }
 }

@@ -5,9 +5,11 @@ using System.IO;
 using Newtonsoft.Json.Linq;
 using Newtonsoft.Json;
 using TMPro;
+using System;
 
 public class SaveManager : MonoBehaviour
 {
+    public static List<WordClass> allTheWords;
     private static string LVL = "Level";
     private static string SOLUTION = "Solution";
     private static string SOLUTIONS = "Solutions";
@@ -58,7 +60,7 @@ public class SaveManager : MonoBehaviour
         JObject jobj = new JObject();
 
         //"ListUnitBase"
-
+        allTheWords = new List<WordClass>();
         foreach (Transform tr in content.GetComponentsInChildren<Transform>(false))
         {
             if(tr.name.Equals("Content") || tr.Find("ToLearn") == null) continue;
@@ -118,20 +120,21 @@ public class SaveManager : MonoBehaviour
                 solObject.Add(LVL, lvl);
                 solArray.Add(solObject);
                 string [] info = new string[]{txtSolution, lvl}; 
-
+                /*
                 if(GameMng.data.ContainsKey(txtToLearn)){
                         GameMng.data[txtToLearn].Add(info);
                     }else{
                         List<string[]> strList = new List<string[]>();
                         strList.Add(info);
                         GameMng.data.Add(txtToLearn,strList);
-                    }
+                    }*/
 
                 obj.Add(SOLUTIONS,solArray);
                 if(exists){
                     jobj.Remove(txtToLearn);
                 }
                 jobj.Add(txtToLearn,obj);//
+                allTheWords.Add(new WordClass(txtSolution, txtToLearn, Int32.Parse(lvl)));
                 
             }
         }
@@ -168,7 +171,7 @@ public class SaveManager : MonoBehaviour
         
         FileStream file = null;
         if(Directory.Exists(Application.persistentDataPath+"/saves")){
-           
+            allTheWords = new List<WordClass>();
             string jsonAux = File.ReadAllText(path);
             JObject json = null;
             try
@@ -190,13 +193,13 @@ public class SaveManager : MonoBehaviour
                     string solStr = sol.GetValue(SOLUTION).ToString();
                     string lvlStr = sol.GetValue(LVL).ToString();
                     string [] info = new string[]{solStr, lvlStr}; 
-                    if(GameMng.data.ContainsKey(property.Name)){
+                    /*if(GameMng.data.ContainsKey(property.Name)){
                         GameMng.data[property.Name].Add(info);
                     }else{
                         List<string[]> strList = new List<string[]>();
                         strList.Add(info);
                         GameMng.data.Add(property.Name,strList);
-                    }
+                    }*/
 
                     GameObject newObj = Instantiate(cloneObj, content.transform, true);    
                     newObj.transform.Find("ToLearn").GetChild(0).GetChild(1).GetComponent<TMP_Text>().SetText(property.Name);
@@ -204,6 +207,8 @@ public class SaveManager : MonoBehaviour
                     newObj.transform.Find("Solution").GetChild(0).GetChild(1).GetComponent<TMP_Text>().SetText(solStr);                    
                     newObj.SetActive(true);
                     clonedObj.Add(newObj);
+                    
+                    allTheWords.Add(new WordClass(solStr, property.Name, Int32.Parse(lvlStr)));
                 }
             }
         }

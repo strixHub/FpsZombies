@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -13,10 +14,17 @@ public class EnemyControler : MonoBehaviour
     //falta el caracter a aprender
     public Image frontSTB;
     public Image backSTB;
+    public string word;
     // Start is called before the first frame update
     void Start()
     {
         currentHealth = maxHealth;
+        
+        var random = new System.Random();
+        int rndIndex = random.Next(GameMng.SortedList.Count);
+        word = GameMng.SortedList[rndIndex].word;
+        gameObject.transform.GetChild(1).GetChild(2).gameObject.GetComponent<TMP_Text>().text = word;
+
     }
 
     // Update is called once per frame
@@ -33,9 +41,11 @@ public class EnemyControler : MonoBehaviour
         if(currentHealth<=0){
             //die animation and despawn
             gameObject.SetActive(false);
+
             //death anim for 5 seconds, then destroy
             //Destroy(gameObject);
             Spawner.nOfZombies --;
+            //Debug.Log(gameObject.transform.GetChild(1).GetChild(2).gameObject.GetComponent<TMP_Text>().text);
             Debug.Log(Spawner.nOfZombies);
         }
     }

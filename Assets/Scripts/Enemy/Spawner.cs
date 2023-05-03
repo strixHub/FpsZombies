@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using TMPro;
 public class Spawner : MonoBehaviour
 {
     public GameObject zombie;
@@ -22,8 +22,8 @@ public class Spawner : MonoBehaviour
         
         if(nOfZombies < MAXZOMBIES){
             nOfZombies++;
-            Instantiate(zombie, transform.position, transform.rotation);
-            
+            GameObject z = Instantiate(zombie, transform.position, transform.rotation);
+            z.transform.GetChild(1).GetChild(2).gameObject.GetComponent<TMP_Text>().text = zombie.GetComponent<EnemyControler>().word;
             spawnInterval = Random.Range(3, 5);
         }
         
