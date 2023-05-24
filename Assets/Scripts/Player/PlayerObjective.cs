@@ -14,6 +14,11 @@ public class PlayerObjective : MonoBehaviour
         objective.text = GameMng.SortedList[rndIndex].wordToLearn;
     }
 
+    public void ChangeObjective(){
+        var random = new System.Random();
+        int rndIndex = random.Next(GameMng.SortedList.Count);
+        objective.text = GameMng.SortedList[rndIndex].wordToLearn;
+    }
     // Update is called once per frame
     void Update()
     {

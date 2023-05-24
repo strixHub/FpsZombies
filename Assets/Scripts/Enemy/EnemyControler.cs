@@ -15,6 +15,7 @@ public class EnemyControler : MonoBehaviour
     public Image frontSTB;
     public Image backSTB;
     public string word;
+    public WordClass wordClass;
     // Start is called before the first frame update
     void Start()
     {
@@ -24,6 +25,7 @@ public class EnemyControler : MonoBehaviour
         int rndIndex = random.Next(GameMng.SortedList.Count);
         word = GameMng.SortedList[rndIndex].word;
         gameObject.transform.GetChild(1).GetChild(2).gameObject.GetComponent<TMP_Text>().text = word;
+        wordClass = GameMng.SortedList[rndIndex];
 
     }
 
@@ -33,7 +35,7 @@ public class EnemyControler : MonoBehaviour
         updateZombiUI();
     }
 
-    public void getDmg(int dmg){
+    public void getDmg(int dmg, PlayerObjective po){
         
         currentHealth -= dmg;
         Debug.Log(currentHealth);
@@ -41,7 +43,7 @@ public class EnemyControler : MonoBehaviour
         if(currentHealth<=0){
             //die animation and despawn
             gameObject.SetActive(false);
-
+            po.ChangeObjective();
             //death anim for 5 seconds, then destroy
             //Destroy(gameObject);
             Spawner.nOfZombies --;

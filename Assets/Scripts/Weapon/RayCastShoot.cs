@@ -14,6 +14,7 @@ public class RayCastShoot : MonoBehaviour
     private WaitForSeconds shotDurations = new WaitForSeconds(0.07f);
     private AudioSource gunAudio;
     public ParticleSystem muzzleFlash;
+    public PlayerObjective po;
     private float nextFire; 
     void Start()
     {
@@ -33,10 +34,9 @@ public class RayCastShoot : MonoBehaviour
 
             if(Physics.Raycast(shotOrigen, fpsCam.transform.forward, out hit, weaponRange)){
                 
-                EnemyControler health = hit.collider.GetComponent<EnemyControler>();
-                if(health!= null){
-                    health.getDmg(gunDmg);
-
+                EnemyControler enemy = hit.collider.GetComponent<EnemyControler>();
+                if(enemy != null && po.objective.text.Equals(enemy.wordClass.wordToLearn)){
+                    enemy.getDmg(gunDmg, po);
                 }
 
             }else{
