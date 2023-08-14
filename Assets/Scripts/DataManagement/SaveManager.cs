@@ -169,7 +169,6 @@ public class SaveManager : MonoBehaviour
         content = cnt;
         string path = Application.persistentDataPath+"/saves/SaveData.save";
         
-        FileStream file = null;
         if(Directory.Exists(Application.persistentDataPath+"/saves")){
             allTheWords = new List<WordClass>();
             string jsonAux = File.ReadAllText(path);

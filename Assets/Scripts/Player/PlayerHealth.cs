@@ -10,6 +10,7 @@ public class PlayerHealth : MonoBehaviour
     public float cheapSpeed = 2f;
     public Image frontHB;
     public Image backHB;
+    public System.Action OnDeath;
     
     private float timer;
     // Start is called before the first frame update
@@ -51,6 +52,12 @@ public class PlayerHealth : MonoBehaviour
 
     public void takeDmg(float dmg){
         health-=dmg;
+        if(health<=0){
+            if(OnDeath!=null){
+                OnDeath();
+            }
+            return;
+        }
         timer = 0f;
     }
 
