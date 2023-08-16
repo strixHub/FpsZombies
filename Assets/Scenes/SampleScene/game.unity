@@ -367,7 +367,8 @@ MonoBehaviour:
   childObject: {fileID: 578105195882414104}
   lookScript: {fileID: 578105195882414103}
   cameraAnimSpeed: 3
-  deathTexture: {fileID: 0}
+  deathTexture: {fileID: 2800000, guid: 3f359b8793b5f394ab606f8d77f2f8b7, type: 3}
+  cameraPath: {fileID: 0}
 --- !u!108 &705507994 stripped
 Light:
   m_CorrespondingSourceObject: {fileID: 1375912010140570655, guid: d6d1f2359dd30c8458423180496de907, type: 3}
@@ -516,6 +517,10 @@ PrefabInstance:
     - target: {fileID: 578105196231548560, guid: 382415592957cab4cbec8e0a7e59f983, type: 3}
       propertyPath: m_CullingMask.m_Bits
       value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 3674152423014475699, guid: 382415592957cab4cbec8e0a7e59f983, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 7.38
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 578105196231548563, guid: 382415592957cab4cbec8e0a7e59f983, type: 3}

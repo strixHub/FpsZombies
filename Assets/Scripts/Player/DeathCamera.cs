@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class DeathCamera : MonoBehaviour
 {
@@ -24,9 +25,12 @@ public class DeathCamera : MonoBehaviour
         StartCoroutine(MoveThroughAnim());
    }
    private IEnumerator MoveThroughAnim(){
+        
+        /*
+        CAMERA FLOTA O PERDER CONTROL DE PERSONAJE Y NO PODER HACER IMPUTS
+        Transform temp = transform.parent.transform;
         transform.parent = null;
         childObject.SetActive(false);
-        //todo camerapath.transform.parent = null;
         lookScript.enabled = false;
         float current = 0.0f;
         float deltaTime = 1.0f/cameraAnimSpeed;
@@ -34,9 +38,10 @@ public class DeathCamera : MonoBehaviour
         while(current<1){
             yield return null;
             current += Time.deltaTime * deltaTime;
-            //TODO transform.position = cameraPath.GetPointAtTime(current);
+            transform.position = new Vector3(temp.position.x,temp.position.y + 200, temp.position.z);
+
             transform.LookAt(playerEntity.transform);
-        }
+        }*/
         yield return new WaitForSeconds(0.5f);
         StartCoroutine(FadeInGUI());
    }
@@ -63,7 +68,7 @@ public class DeathCamera : MonoBehaviour
             GUI.DrawTexture(new Rect(0.0f, 0.0f, Screen.width, Screen.height), deathTexture);
             if(canReloadLevel){
                 if(Event.current.type == EventType.KeyUp){
-                    Application.LoadLevel(Application.loadedLevel);
+                    SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
                 }
             }
         }
