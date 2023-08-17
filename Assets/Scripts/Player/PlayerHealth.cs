@@ -53,6 +53,7 @@ public class PlayerHealth : MonoBehaviour
     public void takeDmg(float dmg){
         health-=dmg;
         if(health<=0){
+            //transform.position = new Vector3(transform.position.x, 2000f, transform.position.z);
             if(OnDeath!=null){
                 OnDeath();
             }

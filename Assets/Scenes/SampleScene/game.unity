@@ -368,7 +368,6 @@ MonoBehaviour:
   lookScript: {fileID: 578105195882414103}
   cameraAnimSpeed: 3
   deathTexture: {fileID: 2800000, guid: 3f359b8793b5f394ab606f8d77f2f8b7, type: 3}
-  cameraPath: {fileID: 0}
 --- !u!108 &705507994 stripped
 Light:
   m_CorrespondingSourceObject: {fileID: 1375912010140570655, guid: d6d1f2359dd30c8458423180496de907, type: 3}
@@ -542,6 +541,19 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 578105195466388334, guid: 382415592957cab4cbec8e0a7e59f983, type: 3}
   m_PrefabInstance: {fileID: 578105195882414102}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &578105195882414105
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 517519851}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0570a26e089a454196667d99e835ad9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  trackedObject: {fileID: 517519851}
 --- !u!1001 &1375912009435080325
 PrefabInstance:
   m_ObjectHideFlags: 0

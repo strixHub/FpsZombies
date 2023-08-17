@@ -38,17 +38,11 @@ public class EnemyControler : MonoBehaviour
     public void getDmg(int dmg, PlayerObjective po){
         
         currentHealth -= dmg;
-        Debug.Log(currentHealth);
         updateZombiUI();
         if(currentHealth<=0){
-            //die animation and despawn
             gameObject.SetActive(false);
             po.ChangeObjective();
-            //death anim for 5 seconds, then destroy
-            //Destroy(gameObject);
             Spawner.nOfZombies --;
-            //Debug.Log(gameObject.transform.GetChild(1).GetChild(2).gameObject.GetComponent<TMP_Text>().text);
-            Debug.Log(Spawner.nOfZombies);
         }
     }
 

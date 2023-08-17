@@ -32,6 +32,7 @@ public class SaveManager : MonoBehaviour
         clonedObj = new List<GameObject>();
     }
 
+
     public static void SaveData()
     {
 
@@ -120,14 +121,6 @@ public class SaveManager : MonoBehaviour
                 solObject.Add(LVL, lvl);
                 solArray.Add(solObject);
                 string [] info = new string[]{txtSolution, lvl}; 
-                /*
-                if(GameMng.data.ContainsKey(txtToLearn)){
-                        GameMng.data[txtToLearn].Add(info);
-                    }else{
-                        List<string[]> strList = new List<string[]>();
-                        strList.Add(info);
-                        GameMng.data.Add(txtToLearn,strList);
-                    }*/
 
                 obj.Add(SOLUTIONS,solArray);
                 if(exists){
@@ -192,13 +185,6 @@ public class SaveManager : MonoBehaviour
                     string solStr = sol.GetValue(SOLUTION).ToString();
                     string lvlStr = sol.GetValue(LVL).ToString();
                     string [] info = new string[]{solStr, lvlStr}; 
-                    /*if(GameMng.data.ContainsKey(property.Name)){
-                        GameMng.data[property.Name].Add(info);
-                    }else{
-                        List<string[]> strList = new List<string[]>();
-                        strList.Add(info);
-                        GameMng.data.Add(property.Name,strList);
-                    }*/
 
                     GameObject newObj = Instantiate(cloneObj, content.transform, true);    
                     newObj.transform.Find("ToLearn").GetChild(0).GetChild(1).GetComponent<TMP_Text>().SetText(property.Name);
