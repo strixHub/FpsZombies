@@ -24,9 +24,6 @@ public class PlayerHealth : MonoBehaviour
     {
         health = Mathf.Clamp(health, 0, maxHealth);
         updateHealthUI();        
-        //if(){
-        //    takeDmg(20f);
-        //}
     }
     public void updateHealthUI(){
         float fillF = frontHB.fillAmount;
@@ -55,6 +52,7 @@ public class PlayerHealth : MonoBehaviour
         if(health<=0){
             //transform.position = new Vector3(transform.position.x, 2000f, transform.position.z);
             if(OnDeath!=null){
+                DeathCamera.typeOfScreen = 1;
                 OnDeath();
             }
             return;

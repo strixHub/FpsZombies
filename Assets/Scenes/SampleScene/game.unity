@@ -423,11 +423,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 517519861}
+  enemy: {fileID: 2543850042803312670, guid: 892347659646b054887de811ec4e53f2, type: 3}
   playerEntity: {fileID: 517519851}
   childObject: {fileID: 578105195882414104}
   lookScript: {fileID: 578105195882414103}
   cameraAnimSpeed: 3
   deathTexture: {fileID: 2800000, guid: 3f359b8793b5f394ab606f8d77f2f8b7, type: 3}
+  winTexture: {fileID: 2800000, guid: b1cee693723565d4ea53da90bee78905, type: 3}
 --- !u!108 &705507994 stripped
 Light:
   m_CorrespondingSourceObject: {fileID: 1375912010140570655, guid: d6d1f2359dd30c8458423180496de907, type: 3}

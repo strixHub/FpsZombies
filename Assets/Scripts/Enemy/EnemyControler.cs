@@ -9,16 +9,26 @@ public class EnemyControler : MonoBehaviour
 {
     public float maxHealth = 3f;
     private float currentHealth;
-
     public static int dmg = 30;
     //falta el caracter a aprender
     public Image frontSTB;
     public Image backSTB;
     public string word;
-    public WordClass wordClass;
+    public static int deadZombies = 0;
+    public static int totalZombies = 30;
+    public WordClass wordClass;    
+    public System.Action OnDeath;
+
     // Start is called before the first frame update
     void Start()
-    {
+    { 
+        
+        if(PlayerPrefs.GetInt("zombies", -2) ==-2){
+            totalZombies = 30;
+        }else{
+            totalZombies = PlayerPrefs.GetInt("zombies");
+        }
+
         currentHealth = maxHealth;
         
         var random = new System.Random();
@@ -50,6 +60,10 @@ public class EnemyControler : MonoBehaviour
         currentHealth -= dmg;
         updateZombiUI();
         if(currentHealth<=0){
+            
+            deadZombies++;
+            DeathCamera.typeOfScreen = 2;
+            DeathCamera.deathCamera.me.ShowDeathAnim();
             gameObject.SetActive(false);
             po.ChangeObjective();
             Spawner.nOfZombies --;
@@ -71,4 +85,6 @@ public class EnemyControler : MonoBehaviour
 
         backSTB.fillAmount = Mathf.Lerp(fillB, healthFraction, percent);
     }
+
+    
 }

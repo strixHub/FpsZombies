@@ -8,6 +8,7 @@ public class DeathCamera : MonoBehaviour
 {
    
    public PlayerHealth player;
+   public EnemyControler enemy;
    public GameObject playerEntity;
    public GameObject childObject;
    public PlayerLook lookScript;
@@ -15,16 +16,27 @@ public class DeathCamera : MonoBehaviour
    private bool showGUI = false;
    private bool canReloadLevel = false;
    public Texture deathTexture;
-   private static float startVolume;
+   public Texture winTexture;
+   public static float startVolume;
    private static float currentVolume;
+   public static int typeOfScreen = 1;
    private Color guiColor = Color.white;
+   public static DeathCamera deathCamera = null;
+   public DeathCamera me = null;
 
    void Start(){
-    player.OnDeath += ShowDeathAnim;
+        deathCamera = this;
+        me = this;
+        player.OnDeath +=  ShowDeathAnim;
    }
 
-   void ShowDeathAnim(){
-        player.OnDeath -= ShowDeathAnim;
+   public void ShowDeathAnim(){
+        if(typeOfScreen == 1){
+            player.OnDeath -= ShowDeathAnim;
+        }else{
+            enemy.OnDeath -= ShowDeathAnim;
+        }
+
         StartCoroutine(MoveThroughAnim());
    }
    private IEnumerator MoveThroughAnim(){
@@ -63,17 +75,22 @@ public class DeathCamera : MonoBehaviour
             yield return null;
         }
     }
+    
     private void OnGUI() {
         if(showGUI){
             GUI.color = guiColor;
-            
-            GUI.DrawTexture(new Rect(0.0f, 0.0f, Screen.width, Screen.height), deathTexture);
+            if(typeOfScreen == 1){
+                GUI.DrawTexture(new Rect(0.0f, 0.0f, Screen.width, Screen.height), deathTexture);
+            }else{
+                GUI.DrawTexture(new Rect(0.0f, 0.0f, Screen.width, Screen.height), winTexture);
+            }
             if(canReloadLevel){
                 if(Event.current.type == EventType.KeyUp){
+                    AudioListener.volume = startVolume;
+                    //open the menu to select what to do
                     SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
                 }
             }
         }
-        
     }
 }
