@@ -35,6 +35,16 @@ public class EnemyControler : MonoBehaviour
         updateZombiUI();
     }
 
+    public void SetWord(string newWord){
+        word = newWord;
+        wordClass.word = newWord;
+        foreach(WordClass wc in SaveManager.allTheWords){
+            if(wc.word == newWord){
+                wordClass.wordToLearn= wc.wordToLearn;
+                break;
+            }
+        }
+    }
     public void getDmg(int dmg, PlayerObjective po){
         
         currentHealth -= dmg;
