@@ -62,8 +62,13 @@ public class EnemyControler : MonoBehaviour
         if(currentHealth<=0){
             
             deadZombies++;
-            DeathCamera.typeOfScreen = 2;
-            DeathCamera.deathCamera.me.ShowDeathAnim();
+            if(deadZombies == totalZombies){
+
+                DeathCamera.typeOfScreen = 2;
+                DeathCamera.deathCamera.me.ShowDeathAnim();
+                deadZombies = 0;
+            }
+
             gameObject.SetActive(false);
             po.ChangeObjective();
             Spawner.nOfZombies --;
