@@ -508,7 +508,7 @@ MonoBehaviour:
   lookScript: {fileID: 578105195882414103}
   cameraAnimSpeed: 3
   deathTexture: {fileID: 2800000, guid: 3f359b8793b5f394ab606f8d77f2f8b7, type: 3}
-  winTexture: {fileID: 2800000, guid: b1cee693723565d4ea53da90bee78905, type: 3}
+  winTexture: {fileID: 2800000, guid: 3f359b8793b5f394ab606f8d77f2f8b7, type: 3}
   me: {fileID: 0}
 --- !u!108 &705507994 stripped
 Light:
