@@ -6509,6 +6509,7 @@ Transform:
   m_Children:
   - {fileID: 578105195600932446}
   - {fileID: 578105195116694565}
+  - {fileID: 3674152423014475699}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -6658,7 +6659,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxStamina: 100
   cheapSpeed: 2
-  fatigueTimer: 0
   frontSTB: {fileID: 0}
   backSTB: {fileID: 0}
 --- !u!95 &578105195559738969
@@ -7367,6 +7367,7 @@ MonoBehaviour:
   gunEnd: {fileID: 578105194467163350}
   fpsCam: {fileID: 578105194391453876}
   muzzleFlash: {fileID: 578105194988503185}
+  po: {fileID: 0}
 --- !u!120 &578105195966633784
 LineRenderer:
   m_ObjectHideFlags: 0
@@ -7480,6 +7481,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponRange: 50
   fpsCam: {fileID: 578105194391453876}
+  zombieUI: {fileID: 0}
 --- !u!1 &578105196045354581
 GameObject:
   m_ObjectHideFlags: 0
@@ -8247,4 +8249,35 @@ Transform:
   - {fileID: 578105196045354578}
   m_Father: {fileID: 578105196073284656}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &3315827892032036382
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3674152423014475699}
+  m_Layer: 0
+  m_Name: CameraPath
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3674152423014475699
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3315827892032036382}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 3.16, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 578105195559738968}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

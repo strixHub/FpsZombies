@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -8,13 +9,29 @@ public class SettingsMenu : MonoBehaviour
 {
     Resolution [] resolutions;
     public static TMP_Dropdown resDropdown;
+    public TMP_Dropdown resDropdownField;
 
     public static Slider volume;
-    public static AudioMixer audio;
+    public Slider volumeSlider;
+    public static AudioMixer audio; //TODO check
+    public AudioMixer mixerField;
     public static TMP_Dropdown graphics;
+    public TMP_Dropdown graphsDrop;
+    public static TMP_InputField noOfZombies;
+    public TMP_InputField zombiesField;
     public static Toggle fullScreenChk;
+    public Toggle fullScreen;
     
     private void Start() {
+
+        
+        resDropdown = resDropdownField;
+        graphics = graphsDrop;
+        noOfZombies = zombiesField;
+        fullScreenChk = fullScreen;
+        audio = mixerField;
+        volume = volumeSlider;
+
         resolutions = Screen.resolutions; 
         resDropdown.ClearOptions();
         List<string> options = new List<string>();
@@ -37,6 +54,8 @@ public class SettingsMenu : MonoBehaviour
                 }
             }
         }
+        
+
         resDropdown.AddOptions(options);   
         resDropdown.value = currentResIndex;
         resDropdown.RefreshShownValue();
@@ -44,12 +63,28 @@ public class SettingsMenu : MonoBehaviour
     public void SetVolume(float volume){
         audio.SetFloat("MasterVolume", volume);
         PlayerPrefs.SetFloat("MasterVolume", volume);
+
         PlayerPrefs.Save();
+        Debug.Log(PlayerPrefs.GetFloat("MasterVolume"));
     }
 
     public void SetQuality(int quality){
         QualitySettings.SetQualityLevel(quality);
         PlayerPrefs.SetInt("Quality", quality);
+        PlayerPrefs.Save();
+    }
+
+    public static void saveZombiesData(){
+        int zombiesNo = 0;
+        try
+        {
+            Int32.TryParse(noOfZombies.text, out zombiesNo);
+        }
+        catch (System.Exception)
+        {
+        }
+
+        PlayerPrefs.SetInt("zombies",zombiesNo);
         PlayerPrefs.Save();
     }
 
@@ -73,7 +108,15 @@ public class SettingsMenu : MonoBehaviour
     }
 
     public static void LoadSavedConfig(){
-        
+       
+        Debug.Log(PlayerPrefs.GetInt("zombies"));
+
+        if(PlayerPrefs.GetInt("zombies", -2) ==-2){
+            noOfZombies.text = "30";
+        }else{
+            noOfZombies.text = PlayerPrefs.GetInt("zombies")+"";
+        }
+
         if(PlayerPrefs.GetFloat("MasterVolume",-2) != -2){
             volume.value = PlayerPrefs.GetFloat("MasterVolume");        
             audio.SetFloat("MasterVolume", PlayerPrefs.GetFloat("MasterVolume"));
@@ -95,5 +138,7 @@ public class SettingsMenu : MonoBehaviour
             Screen.SetResolution(PlayerPrefs.GetInt("Width"), PlayerPrefs.GetInt("Height"), Screen.fullScreen, 
             PlayerPrefs.GetInt("RefreshRate"));
         }
+
+        //load saved zombies number
     }
 }

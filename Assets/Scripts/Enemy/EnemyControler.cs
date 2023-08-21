@@ -9,16 +9,26 @@ public class EnemyControler : MonoBehaviour
 {
     public float maxHealth = 3f;
     private float currentHealth;
-
     public static int dmg = 30;
     //falta el caracter a aprender
     public Image frontSTB;
     public Image backSTB;
     public string word;
-    public WordClass wordClass;
+    public static int deadZombies = 0;
+    public static int totalZombies = 30;
+    public WordClass wordClass;    
+    public System.Action OnDeath;
+
     // Start is called before the first frame update
     void Start()
-    {
+    { 
+        
+        if(PlayerPrefs.GetInt("zombies", -2) ==-2){
+            totalZombies = 30;
+        }else{
+            totalZombies = PlayerPrefs.GetInt("zombies");
+        }
+
         currentHealth = maxHealth;
         
         var random = new System.Random();
@@ -35,20 +45,33 @@ public class EnemyControler : MonoBehaviour
         updateZombiUI();
     }
 
+    public void SetWord(string newWord){
+        word = newWord;
+        wordClass.word = newWord;
+        foreach(WordClass wc in SaveManager.allTheWords){
+            if(wc.word == newWord){
+                wordClass.wordToLearn= wc.wordToLearn;
+                break;
+            }
+        }
+    }
     public void getDmg(int dmg, PlayerObjective po){
         
         currentHealth -= dmg;
-        Debug.Log(currentHealth);
         updateZombiUI();
         if(currentHealth<=0){
-            //die animation and despawn
+            
+            deadZombies++;
+            if(deadZombies == 1){//totalZombies){
+
+                DeathCamera.typeOfScreen = 2;
+                DeathCamera.deathCamera.me.ShowDeathAnim();
+                deadZombies = 0;
+            }
+
             gameObject.SetActive(false);
             po.ChangeObjective();
-            //death anim for 5 seconds, then destroy
-            //Destroy(gameObject);
             Spawner.nOfZombies --;
-            //Debug.Log(gameObject.transform.GetChild(1).GetChild(2).gameObject.GetComponent<TMP_Text>().text);
-            Debug.Log(Spawner.nOfZombies);
         }
     }
 
@@ -67,4 +90,6 @@ public class EnemyControler : MonoBehaviour
 
         backSTB.fillAmount = Mathf.Lerp(fillB, healthFraction, percent);
     }
+
+    
 }

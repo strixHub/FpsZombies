@@ -10,6 +10,7 @@ public class PlayerHealth : MonoBehaviour
     public float cheapSpeed = 2f;
     public Image frontHB;
     public Image backHB;
+    public System.Action OnDeath;
     
     private float timer;
     // Start is called before the first frame update
@@ -23,9 +24,6 @@ public class PlayerHealth : MonoBehaviour
     {
         health = Mathf.Clamp(health, 0, maxHealth);
         updateHealthUI();        
-        //if(){
-        //    takeDmg(20f);
-        //}
     }
     public void updateHealthUI(){
         float fillF = frontHB.fillAmount;
@@ -51,6 +49,14 @@ public class PlayerHealth : MonoBehaviour
 
     public void takeDmg(float dmg){
         health-=dmg;
+        if(health<=0){
+            //transform.position = new Vector3(transform.position.x, 2000f, transform.position.z);
+            if(OnDeath!=null){
+                DeathCamera.typeOfScreen = 1;
+                OnDeath();
+            }
+            return;
+        }
         timer = 0f;
     }
 
