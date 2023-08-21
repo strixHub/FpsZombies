@@ -10,7 +10,7 @@ public class Spawner : MonoBehaviour
     private static int round = 1;
     public static List<string> wordsInWorld;
     
-    private float startDelay = 1;
+    private float startDelay = 3;
     private float spawnInterval;
     public PlayerObjective po;
 

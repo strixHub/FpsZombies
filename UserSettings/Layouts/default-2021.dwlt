@@ -74,7 +74,7 @@ MonoBehaviour:
   m_MinSize: {x: 100, y: 200}
   m_MaxSize: {x: 8096, y: 16192}
   vertical: 1
-  controlID: 78
+  controlID: 118
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -170,7 +170,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 200}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 77
+  controlID: 30
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -195,7 +195,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 200}
   m_MaxSize: {x: 16192, y: 16192}
   vertical: 1
-  controlID: 117
+  controlID: 31
 --- !u!114 &9
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -220,7 +220,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 100}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
-  controlID: 118
+  controlID: 32
 --- !u!114 &10
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -240,8 +240,8 @@ MonoBehaviour:
     y: 0
     width: 636.8
     height: 352.8
-  m_MinSize: {x: 200, y: 200}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 201, y: 221}
+  m_MaxSize: {x: 4001, y: 4021}
   m_ActualView: {fileID: 22}
   m_Panes:
   - {fileID: 22}
@@ -268,8 +268,8 @@ MonoBehaviour:
     y: 0
     width: 241.60004
     height: 352.8
-  m_MinSize: {x: 200, y: 200}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 202, y: 221}
+  m_MaxSize: {x: 4002, y: 4021}
   m_ActualView: {fileID: 23}
   m_Panes:
   - {fileID: 23}
@@ -323,8 +323,8 @@ MonoBehaviour:
     y: 0
     width: 657.6
     height: 430.4
-  m_MinSize: {x: 275, y: 50}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 276, y: 71}
+  m_MaxSize: {x: 4001, y: 4021}
   m_ActualView: {fileID: 26}
   m_Panes:
   - {fileID: 26}
@@ -363,7 +363,7 @@ MonoBehaviour:
     m_SaveData: []
   m_LockTracker:
     m_IsLocked: 0
-  m_LastSelectedObjectID: 54710
+  m_LastSelectedObjectID: 52854
 --- !u!114 &15
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -397,7 +397,7 @@ MonoBehaviour:
   m_Zoom: -1
   m_ScrollPosition: {x: 0, y: 0}
   m_SelectedObject: {fileID: 0}
-  m_SelectedSpriteRectGUID: 5e97eb03825dee720800000000000000
+  m_SelectedSpriteRectGUID: 00000000000000000000000000000000
   m_LastUsedModuleTypeName: UnityEditor.U2D.Sprites.SpritePhysicsShapeModule
 --- !u!114 &16
 MonoBehaviour:
@@ -15387,7 +15387,7 @@ MonoBehaviour:
       changingManually: 0
     hasRemote: 1
     lastCurrentRemoteChangedEvent:
-      updatedTimeString: 2023-08-17T17:42:56.336+09:00
+      updatedTimeString: 2023-08-18T09:21:08.075+09:00
       cacheType: 1
     metricsEnabled: 1
     newRepositoryRemoteUrl: https://github.com/MarcFernandezParra/FpsZombies.git
@@ -15401,7 +15401,7 @@ MonoBehaviour:
       newGitEmail: markusmou51@gmail.com
       needsSaving: 0
       lastCheckUserChangedEvent:
-        updatedTimeString: 2023-08-17T18:07:52.954+09:00
+        updatedTimeString: 2023-08-18T16:50:05.911+09:00
         cacheType: 8
     webTimeout: 3000
     gitTimeout: 5000
@@ -15722,8 +15722,8 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 73.6
-    width: 856.6
-    height: 274.2
+    width: 635.8
+    height: 331.8
   m_ViewDataDictionary: {fileID: 0}
   m_OverlayCanvas:
     m_LastAppliedPresetName: Default
@@ -15750,14 +15750,14 @@ MonoBehaviour:
       e31: 0
       e32: 0
       e33: 1
-    - e00: 0.44000003
+    - e00: 0.17039238
       e01: 0
       e02: 0
-      e03: 1.7999878
+      e03: 140.25653
       e10: 0
-      e11: 0.44000003
+      e11: 0.17039238
       e12: 0
-      e13: 105.799995
+      e13: 119.34575
       e20: 0
       e21: 0
       e22: 1
@@ -15783,9 +15783,9 @@ MonoBehaviour:
       e32: 0
       e33: 1
   m_PreviewAnimator: {fileID: 0}
-  m_AnimatorController: {fileID: 9100000, guid: ce99c156697bc0e40ab9ae0f709ee098, type: 2}
+  m_AnimatorController: {fileID: 9100000, guid: 3366386d8fe7804448bcdb2d8562943c, type: 2}
   m_BreadCrumbs:
-  - m_Target: {fileID: 1083308387168058528, guid: ce99c156697bc0e40ab9ae0f709ee098, type: 2}
+  - m_Target: {fileID: 7217289111798816638, guid: 3366386d8fe7804448bcdb2d8562943c, type: 2}
     m_ScrollPosition: {x: 0, y: 0}
   stateMachineGraph: {fileID: 0}
   stateMachineGraphGUI: {fileID: 0}
@@ -16017,7 +16017,7 @@ MonoBehaviour:
       floating: 0
       collapsed: 0
       displayed: 1
-      snapOffset: {x: 67.5, y: 0}
+      snapOffset: {x: 67.5, y: 24.8}
       snapOffsetDelta: {x: 0, y: 0}
       snapCorner: 0
       id: Orientation
@@ -16176,9 +16176,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 613.45197, y: 178.33961, z: 159.58405}
+    m_Target: {x: 430.9688, y: 178.56886, z: 210.16815}
     speed: 2
-    m_Value: {x: 613.45197, y: 178.33961, z: 159.58405}
+    m_Value: {x: 430.9688, y: 178.56886, z: 210.16815}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -16225,13 +16225,13 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: -0.02233633, y: 0.119682, z: 0.0026933276, w: 0.992558}
+    m_Target: {x: 0.029986883, y: 0.023986984, z: -0.0007198519, w: 0.9992629}
     speed: 2
-    m_Value: {x: -0.022336317, y: 0.119681925, z: 0.002693326, w: 0.9925574}
+    m_Value: {x: 0.02998686, y: 0.023986967, z: -0.00071985135, w: 0.9992622}
   m_Size:
-    m_Target: 237.99222
+    m_Target: 284.10004
     speed: 2
-    m_Value: 237.99222
+    m_Value: 284.10004
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -16287,9 +16287,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 54d60000
-      m_LastClickedID: 54868
-      m_ExpandedIDs: 7047ffff6053ffff6653ffff4255ffff2a5affffbc5effff32fbffff6464000072d400008ad40000c2d40000ead40000f4d4000054d6000078d60000
+      m_SelectedIDs: 
+      m_LastClickedID: 0
+      m_ExpandedIDs: 9ee3feff1c0dffff4e1dffff2820ffff1e29ffff94a8ffff24acffffc0aeffff9ab1ffff8ef1ffff90f1ffff32fbffff4c8d0000528d0000c08f00003090000016910000a8bd0000becc0000c4cc000076ce00008ee60000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -16354,22 +16354,22 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Scripts/Menu
+    - Assets/Scenes/SampleScene
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Scripts/Menu
+  - Assets/Scenes/SampleScene
   m_LastFoldersGridSize: -1
   m_LastProjectPath: C:\Users\Mou\Desktop\TFG\Zombies\ZombiesGame
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 118.19998}
-    m_SelectedIDs: 826a0000
-    m_LastClickedID: 27266
-    m_ExpandedIDs: 000000005a6a00005c6a00005e6a0000606a0000626a0000646a0000726a0000786a000000ca9a3b
+    scrollPos: {x: 0, y: 75}
+    m_SelectedIDs: 9c690000
+    m_LastClickedID: 27036
+    m_ExpandedIDs: 00000000786900007a6900007c6900007e6900008069000082690000946900009869000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -16397,7 +16397,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 000000005a6a00005c6a00005e6a0000606a0000626a0000646a0000
+    m_ExpandedIDs: 00000000786900007a6900007c6900007e6900008069000082690000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
