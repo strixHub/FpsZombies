@@ -27,6 +27,7 @@ public class SettingsMenu : MonoBehaviour
         
         resDropdown = resDropdownField;
         graphics = graphsDrop;
+        Debug.Log(zombiesField);
         noOfZombies = zombiesField;
         fullScreenChk = fullScreen;
         audio = mixerField;
@@ -114,6 +115,7 @@ public class SettingsMenu : MonoBehaviour
         if(PlayerPrefs.GetInt("zombies", -2) ==-2){
             noOfZombies.text = "30";
         }else{
+            Debug.Log(noOfZombies);
             noOfZombies.text = PlayerPrefs.GetInt("zombies")+"";
         }
 

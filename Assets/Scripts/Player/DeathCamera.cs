@@ -16,7 +16,6 @@ public class DeathCamera : MonoBehaviour
    private bool showGUI = false;
    private bool canReloadLevel = false;
    public Texture deathTexture;
-   public Texture winTexture;
    public static float startVolume;
    private static float currentVolume;
    public static int typeOfScreen = 1;
@@ -79,16 +78,22 @@ public class DeathCamera : MonoBehaviour
     private void OnGUI() {
         if(showGUI){
             GUI.color = guiColor;
-            if(typeOfScreen == 1){
+            GUI.DrawTexture(new Rect(0.0f, 0.0f, Screen.width, Screen.height), deathTexture);
+            /*if(typeOfScreen == 1){
                 GUI.DrawTexture(new Rect(0.0f, 0.0f, Screen.width, Screen.height), deathTexture);
             }else{
-                GUI.DrawTexture(new Rect(0.0f, 0.0f, Screen.width, Screen.height), winTexture);
-            }
+                GUI.DrawTexture(new Rect(0.0f, 0.0f, Screen.width, Screen.height), deathTexture);
+            }*/
             if(canReloadLevel){
-                if(Event.current.type == EventType.KeyUp){
-                    AudioListener.volume = startVolume;
-                    //open the menu to select what to do
-                    SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
+                //if(Event.current.type == EventType.KeyUp){
+                AudioListener.volume = startVolume;
+
+                if(typeOfScreen == 1){
+                    //death
+                    SceneManager.LoadScene("LoseScene");
+                }else{
+                    //win
+                    SceneManager.LoadScene("WinScene");
                 }
             }
         }
