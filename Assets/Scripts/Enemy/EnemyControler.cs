@@ -62,7 +62,7 @@ public class EnemyControler : MonoBehaviour
         if(currentHealth<=0){
             
             deadZombies++;
-            if(deadZombies == 1){//totalZombies){
+            if(deadZombies == totalZombies){//1){
 
                 DeathCamera.typeOfScreen = 2;
                 DeathCamera.deathCamera.me.ShowDeathAnim();
